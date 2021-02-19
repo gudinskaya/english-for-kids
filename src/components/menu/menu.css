@@ -1,0 +1,106 @@
+@keyframes slide-in {
+  0% {
+    margin-left: -400px;
+  }
+  100% {
+    margin-left: 0px;
+  }
+}
+
+@keyframes slide-out {
+  100% {
+    margin-left: -400px;
+  }
+}
+
+.show {
+  animation: slide-in 0.5s forwards;
+}
+
+.animation__remove {
+  margin-left: -400px;
+}
+
+.burger {
+  outline: none;
+  user-select: none;
+  background-color: transparent;
+  border: none;
+  margin-left: 40px;
+  margin-top: 30px;
+  position: absolute;
+  z-index: 4;
+  transition: all 0.2s ease-in-out 0s;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.opened {
+    transform: rotate(90deg);
+  }
+}
+
+.hide {
+  animation: slide-out 0.5s forwards;
+}
+
+.menu__wrapper {
+  position: absolute;
+  z-index: 3;
+  height: 100vh;
+  width: 400px;
+  place-content: center;
+  align-items: center;
+  background: rgb(131,58,180);
+  background: linear-gradient(rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, #fcb045 100%);
+}
+
+.menu {
+  height: 100vh;
+  width: fit-content;
+  display: flex;
+  margin: auto;
+  place-content: center;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+}
+
+.menu__elem {
+  width: fit-content;
+  user-select: none;
+  position: relative;
+  outline: 0;
+  text-decoration: none;
+  opacity: 0.8;
+  font-size: 30px;
+  line-height: 160%;
+
+  &.active,
+  &:not(.inactive):hover {
+    opacity: 1;
+    cursor: pointer;
+    transition: opacity 0.5s ease-in-out 0s;
+  }
+
+  &::after {
+    width: 0;
+    left: 50%;
+    opacity: 0;
+    position: absolute;
+    height: 3px;
+    content: "";
+    bottom: -2px;
+    background: #fff;
+    transition: all 0.5s ease-in-out 0s;
+  }
+
+  &.active::after,
+  &:not(.inactive):focus::after,
+  &:not(.inactive):hover::after {
+    width: 100%;
+    left: 0;
+    opacity: 1;
+  }
+}

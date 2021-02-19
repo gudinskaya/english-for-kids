@@ -1,0 +1,120 @@
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  z-index: 1;
+  grid-gap: 1rem;
+  position: relative;
+
+  @media (max-width: 800px) {
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.switch__wrapper {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  color:white;
+
+  .switch__button {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color:#cf9ef0;
+    width: 100px;
+    height: 38px;
+    border-radius: 30px;
+  }
+  .switch__circle {
+    background-color: #fcb045;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 1px 0 1px 6px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .switch__text_play {
+    display: none;
+  }
+
+  .switch__text_train {
+    display: flex;
+    margin-left: 6px;
+  }
+
+}
+
+.switch__wrapper_active {
+  .switch__button {
+    background-color: rgba(131, 58, 180, 1);
+  }
+
+  .switch__circle {
+    background-color:#e99826;
+    transform: translateX(200%);
+    transition: 0.3s;
+  }
+  .switch__text_play {
+    display: flex;
+    margin-left: -20px;
+  }
+
+  .switch__text_train {
+    display: none;
+  }
+
+}
+
+.bgToys {
+  z-index: -1;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 200px;
+}
+
+.bgCat {
+  z-index: -5;
+  position: absolute;
+  top: -133px;
+  left: -43px;
+  height: 150px;
+  @media (max-width: 800px) {
+    display: none;
+  }
+}
+
+.text {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  place-content: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    to right,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    #fcb045 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #0b2349;
+  margin-bottom: 30px;
+  z-index: 2;
+}
+
+.page_wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+}
